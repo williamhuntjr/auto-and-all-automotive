@@ -35,6 +35,8 @@ The migration enables Row Level Security and removes direct browser access. The 
 
 ## Deploy to Vercel
 
+For the complete step-by-step launch checklist (GitHub, Supabase, Vercel, domain, SMTP and testing), see [DEPLOYMENT.md](DEPLOYMENT.md). The summary:
+
 1. Upload this project to a GitHub repository or import the project folder directly into Vercel.
 2. Select the Next.js framework preset. The normal build command is `npm run build`.
 3. Add these environment variables to Vercel for Production, Preview, and Development as appropriate:

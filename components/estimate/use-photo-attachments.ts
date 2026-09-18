@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { MAX_PHOTOS } from "@/common/lib/estimate-photos";
+import { MAX_PHOTOS, MAX_UPLOAD_BYTES } from "@/common/lib/estimate-photos";
 import { compressImage } from "./compress-image";
 
 export type PhotoItem = { id: number; file: File; url: string };
@@ -32,9 +32,16 @@ export function usePhotoAttachments() {
       setBusy(true);
       const added: PhotoItem[] = [];
       const unreadable: string[] = [];
+      let total = photos.reduce((sum, photo) => sum + photo.file.size, 0);
+      let overBudget = false;
       for (const file of incoming.slice(0, room)) {
         try {
           const resized = await compressImage(file);
+          if (total + resized.size > MAX_UPLOAD_BYTES) {
+            overBudget = true;
+            continue;
+          }
+          total += resized.size;
           const url = URL.createObjectURL(resized);
           urls.current.add(url);
           added.push({ id: nextId.current++, file: resized, url });
@@ -43,14 +50,16 @@ export function usePhotoAttachments() {
         }
       }
       setPhotos((current) => [...current, ...added]);
-      if (unreadable.length) {
+      if (overBudget) {
+        setError("Those photos are too large to attach together (about 4 MB in total). Remove one to add another.");
+      } else if (unreadable.length) {
         setError(`We couldn’t read ${unreadable.join(", ")}. Please choose JPEG, PNG or WebP photos.`);
       } else if (incoming.length > room) {
         setError(`Only ${MAX_PHOTOS} photos can be attached, so the extras were skipped.`);
       }
       setBusy(false);
     },
-    [photos.length],
+    [photos],
   );
 
   const remove = useCallback((id: number) => {

@@ -1,4 +1,9 @@
 export const MAX_PHOTOS = 5;
+/**
+ * Total size the browser will attach. Hosts such as Vercel reject request
+ * bodies over about 4.5 MB, so stay comfortably under that.
+ */
+export const MAX_UPLOAD_BYTES = 4 * 1024 * 1024;
 /** Photos are resized in the browser first, so these are generous ceilings. */
 export const MAX_PHOTO_BYTES = 5 * 1024 * 1024;
 export const MAX_TOTAL_PHOTO_BYTES = 10 * 1024 * 1024;
