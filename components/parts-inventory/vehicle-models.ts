@@ -1,0 +1,25 @@
+/** Common models per make, used as suggestions in the add-part form. */
+export const vehicleModels: Record<string, string[]> = {
+  Acura: ["ILX", "Integra", "MDX", "RDX", "TLX"],
+  BMW: ["3 Series", "5 Series", "X3", "X5"],
+  Chevrolet: ["Equinox", "Malibu", "Silverado", "Tahoe", "Traverse"],
+  Ford: ["Bronco", "Escape", "Explorer", "F-150", "Mustang"],
+  Honda: ["Accord", "Civic", "CR-V", "Odyssey", "Pilot"],
+  Hyundai: ["Elantra", "Santa Fe", "Sonata", "Tucson"],
+  Jeep: ["Cherokee", "Compass", "Gladiator", "Grand Cherokee", "Wrangler"],
+  Kia: ["Forte", "K5", "Sorento", "Sportage", "Telluride"],
+  Lexus: ["ES", "GX", "IS", "LS", "RX"],
+  Mazda: ["CX-5", "CX-50", "Mazda3", "Mazda6"],
+  "Mercedes-Benz": ["C-Class", "E-Class", "GLC", "GLE"],
+  Nissan: ["Altima", "Frontier", "Maxima", "Pathfinder", "Rogue", "Sentra"],
+  Subaru: ["Ascent", "Crosstrek", "Forester", "Impreza", "Outback"],
+  Toyota: [
+    "4Runner",
+    "Camry",
+    "Corolla",
+    "Highlander",
+    "RAV4",
+    "Tacoma",
+    "Tundra",
+  ],
+};
