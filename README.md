@@ -42,7 +42,7 @@ For the complete step-by-step launch checklist (GitHub, Supabase, Vercel, domain
 3. Add these environment variables to Vercel for Production, Preview, and Development as appropriate:
    - `DATABASE_URL` — Supabase transaction-pooler PostgreSQL URL
    - `ADMIN_PASSWORD` — a long unique password for `/admin`
-   - `SITE_URL` — the public address of the site (for example `https://autoandallautomotive.com`), used for canonical URLs, the sitemap and social preview images
+   - `SITE_URL` — the public address of the site (for example `https://www.autoandallautomotive.com`), used for canonical URLs, the sitemap and social preview images
 4. Deploy the project.
 
 Do not prefix either variable with `NEXT_PUBLIC_`; both values must remain server-only. Do not commit a real `.env` file.

@@ -2,9 +2,13 @@ import type { Metadata } from "next";
 
 export const SITE = {
   name: "Auto And All Automotive",
-  url: process.env.SITE_URL || "https://autoandallautomotive.com",
+  url: process.env.SITE_URL || "https://www.autoandallautomotive.com",
   description:
     "Collision repair, custom paint, diagnostics, maintenance and mechanical repairs at Auto And All Automotive in Sunbury, North Carolina.",
+  /** Google Analytics 4 Measurement ID (public; it appears in the page source). */
+  gaMeasurementId: "G-YGGK5ZGJ9J",
+  /** Analytics only loads on this hostname (the live site). */
+  gaHostname: "www.autoandallautomotive.com",
   email: "contact@autoandallautomotive.com",
   estimatesEmail: "estimates@autoandallautomotive.com",
   address: {

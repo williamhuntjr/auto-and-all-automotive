@@ -20,7 +20,7 @@ You need: a GitHub account, a Supabase account, a Vercel account, access to the 
 |---|---|
 | `DATABASE_URL` | the transaction-pooler URI from step 6 |
 | `ADMIN_PASSWORD` | a long random password (`openssl rand -base64 32`) |
-| `SITE_URL` | `https://autoandallautomotive.com` (or the final address you'll use) |
+| `SITE_URL` | `https://www.autoandallautomotive.com` |
 | `SMTP_HOST` | your mail server's hostname |
 | `SMTP_PORT` | `587` |
 | `SMTP_USER` / `SMTP_PASS` | the SMTP login |
@@ -32,7 +32,7 @@ You need: a GitHub account, a Supabase account, a Vercel account, access to the 
 10. Click **Deploy**.
 
 ## 4. Point your domain at it
-11. **Settings → Domains** → add `autoandallautomotive.com` and `www.autoandallautomotive.com`. Vercel shows the exact DNS records to create at your DNS provider (typically an `A` record for the bare domain and a `CNAME` for `www`). Choose which one is the primary and let the other redirect.
+11. **Settings → Domains** → add `autoandallautomotive.com` and `www.autoandallautomotive.com`. Vercel shows the exact DNS records to create at your DNS provider (typically an `A` record for the bare domain and a `CNAME` for `www`). Make `www.autoandallautomotive.com` the primary. The app itself redirects the bare domain to www (see `next.config.ts`), so the bare domain must be connected to the project rather than set in Vercel to redirect to www. Never set www to redirect to the bare domain, or the two redirects will loop.
 12. Make sure `SITE_URL` matches the primary address exactly, then **Redeploy** (env changes only apply to new deployments).
 
 ## 5. Prepare your SMTP server

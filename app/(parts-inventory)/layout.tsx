@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@/components/seo/google-analytics";
 
 export const metadata: Metadata = {
   title: "Parts Inventory",
@@ -10,5 +11,10 @@ export default function PartsInventoryLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return children;
+  return (
+    <>
+      {children}
+      <GoogleAnalytics />
+    </>
+  );
 }
