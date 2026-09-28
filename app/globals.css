@@ -646,6 +646,8 @@ body {
 .heroCopy h1 em {
   font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
   font-weight: 800;
+  display: inline-block;
+  padding-right: 0.08em;
   background: linear-gradient(
     90deg,
     var(--red) 0 18%,
